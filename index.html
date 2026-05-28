@@ -7,6 +7,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
+    /* ══ LIGHT (default) ══════════════════════════════════════════════════ */
     :root {
       --gold:        #b8860b;
       --gold-mid:    #c49a30;
@@ -27,6 +28,164 @@
       --shadow:      rgba(100,80,20,0.08);
     }
 
+    /* ══ DARK ══════════════════════════════════════════════════════════════ */
+    body.dark {
+      --gold:        #d4a84b;
+      --gold-mid:    #b8860b;
+      --gold-light:  #6a5010;
+      --gold-faint:  #1a1206;
+      --gold-glow:   rgba(212,168,75,0.15);
+      --bg:          #0e0b06;
+      --bg-card:     #181208;
+      --bg-card2:    #211808;
+      --bg-hero:     #130e05;
+      --text:        #e8d48a;
+      --text-mid:    #c4a84a;
+      --text-dim:    #7a6030;
+      --text-faint:  #4a3818;
+      --border:      #3a2a0a;
+      --border-mid:  #4a3818;
+      --border-dark: #6a5020;
+      --shadow:      rgba(0,0,0,0.4);
+    }
+
+    /* ══ PARTY ═════════════════════════════════════════════════════════════ */
+    body.party {
+      --gold:        #ff2d78;
+      --gold-mid:    #cc44ff;
+      --gold-light:  #440030;
+      --gold-faint:  #0d0020;
+      --gold-glow:   rgba(255,45,120,0.2);
+      --bg:          #06000f;
+      --bg-card:     #0d0020;
+      --bg-card2:    #130030;
+      --bg-hero:     #080018;
+      --text:        #ffffff;
+      --text-mid:    #cc88ff;
+      --text-dim:    #886699;
+      --text-faint:  #442255;
+      --border:      #2a0050;
+      --border-mid:  #3a0060;
+      --border-dark: #550080;
+      --shadow:      rgba(0,0,0,0.6);
+    }
+
+    body.party { animation: party-bg 8s linear infinite; }
+    @keyframes party-bg {
+      0%   { background-color: #06000f; }
+      20%  { background-color: #0a0006; }
+      40%  { background-color: #00060f; }
+      60%  { background-color: #060010; }
+      80%  { background-color: #080004; }
+      100% { background-color: #06000f; }
+    }
+
+    body.party .hero h1 {
+      animation: fadedown 0.9s ease both, party-title 2s linear 0.9s infinite;
+    }
+    @keyframes party-title {
+      0%   { color: #ff2d78; text-shadow: 0 2px 20px rgba(255,45,120,0.5); }
+      25%  { color: #cc88ff; text-shadow: 0 2px 20px rgba(204,136,255,0.5); }
+      50%  { color: #00ffff; text-shadow: 0 2px 20px rgba(0,255,255,0.5); }
+      75%  { color: #aaff00; text-shadow: 0 2px 20px rgba(170,255,0,0.5); }
+      100% { color: #ff2d78; text-shadow: 0 2px 20px rgba(255,45,120,0.5); }
+    }
+
+    body.party .card,
+    body.party .tool-card,
+    body.party .toc,
+    body.party .authorship,
+    body.party .prompt-box,
+    body.party .download-block {
+      animation: party-border 2s linear infinite;
+    }
+    @keyframes party-border {
+      0%   { border-color: #ff2d78; }
+      25%  { border-color: #00ffff; }
+      50%  { border-color: #cc88ff; }
+      75%  { border-color: #aaff00; }
+      100% { border-color: #ff2d78; }
+    }
+
+    body.party .card::before {
+      animation: party-bar 2s linear infinite;
+    }
+    @keyframes party-bar {
+      0%   { background: #ff2d78; }
+      25%  { background: #00ffff; }
+      50%  { background: #cc88ff; }
+      75%  { background: #aaff00; }
+      100% { background: #ff2d78; }
+    }
+
+    body.party .callout {
+      animation: party-callout 2s linear infinite;
+    }
+    @keyframes party-callout {
+      0%   { border-left-color: #ff2d78; }
+      25%  { border-left-color: #00ffff; }
+      50%  { border-left-color: #cc88ff; }
+      75%  { border-left-color: #aaff00; }
+      100% { border-left-color: #ff2d78; }
+    }
+
+    body.party .hero {
+      animation: party-border-bottom 2s linear infinite;
+    }
+    body.party footer {
+      animation: party-border-top 2s linear infinite;
+    }
+    @keyframes party-border-bottom {
+      0%   { border-bottom-color: #ff2d78; }
+      25%  { border-bottom-color: #00ffff; }
+      50%  { border-bottom-color: #cc88ff; }
+      75%  { border-bottom-color: #aaff00; }
+      100% { border-bottom-color: #ff2d78; }
+    }
+    @keyframes party-border-top {
+      0%   { border-top-color: #ff2d78; }
+      25%  { border-top-color: #00ffff; }
+      50%  { border-top-color: #cc88ff; }
+      75%  { border-top-color: #aaff00; }
+      100% { border-top-color: #ff2d78; }
+    }
+
+    body.party .section-label,
+    body.party .step,
+    body.party .loop-step,
+    body.party .seed-list li {
+      animation: party-border-bottom 2s linear infinite;
+    }
+
+    body.party .theme-btn {
+      animation: party-border 2s linear infinite;
+    }
+
+    /* ══ THEME BUTTON (floating) ═══════════════════════════════════════════ */
+    .theme-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 18px;
+      z-index: 999;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 0;
+    }
+    .theme-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 4px 18px var(--gold-glow);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
@@ -38,7 +197,7 @@
       min-height: 100vh;
       padding: 0 20px 80px;
       line-height: 1.7;
-      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
     }
 
     /* ── HERO ── */
@@ -153,7 +312,7 @@
     }
 
     /* ── LAYOUT ── */
-    .page { max-width: 760px; margin: 0 auto; }
+    .page { max-width: 760px; margin: 0 auto; overflow-x: hidden; }
 
     /* ── SECTION ── */
     .section { margin-bottom: 64px; }
@@ -782,11 +941,6 @@
         sequence — everything the notebook needs and nothing it doesn't.
         No further sources will be added. The signal is clean.
       </p>
-      <p class="prose">
-        All four texts are bundled together in a single file:
-        <span class="mono gold">soul-calculator-training-data.txt</span>.
-        One upload. Done. 🧮
-      </p>
       <div class="spacer"></div>
 
       <div class="card">
@@ -850,9 +1004,6 @@
           The source library is now sealed. These four texts are the complete
           boot sequence for the Soul Calculator. Any more would introduce
           bias. Any less would leave the loop open. This is exactly enough. 🧮
-          All four are bundled in
-          <span class="mono">soul-calculator-training-data.txt</span> —
-          one file to upload.
         </p>
       </div>
     </div>
@@ -899,6 +1050,19 @@
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
+            <span class="step-emoji">📥</span>
+            <div class="step-title">CHOOSE DOWNLOAD MODE</div>
+            <div class="step-body">
+              Choose to wipe and redownload everything fresh, or resume and
+              skip files you already have. Use Resume if you are running the
+              script again to pick up new sources added to the archive. ♻️
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
             <span class="step-emoji">⬇️</span>
             <div class="step-title">SOURCES ARE DOWNLOADED</div>
             <div class="step-body">
@@ -911,7 +1075,7 @@
         </div>
 
         <div class="step">
-          <div class="step-num">4</div>
+          <div class="step-num">5</div>
           <div class="step-content">
             <span class="step-emoji">✨</span>
             <div class="step-title">YOUR FILES ARE GENERATED</div>
@@ -926,7 +1090,7 @@
         </div>
 
         <div class="step">
-          <div class="step-num">5</div>
+          <div class="step-num">6</div>
           <div class="step-content">
             <span class="step-emoji">🌐</span>
             <div class="step-title">OPEN NOTEBOOKLM</div>
@@ -940,7 +1104,7 @@
         </div>
 
         <div class="step">
-          <div class="step-num">6</div>
+          <div class="step-num">7</div>
           <div class="step-content">
             <span class="step-emoji">📓</span>
             <div class="step-title">CREATE A NEW NOTEBOOK</div>
@@ -953,22 +1117,22 @@
         </div>
 
         <div class="step">
-          <div class="step-num">7</div>
+          <div class="step-num">8</div>
           <div class="step-content">
             <span class="step-emoji">📤</span>
             <div class="step-title">UPLOAD YOUR SOURCES</div>
             <div class="step-body">
-              Inside the notebook, find the option to add sources. Upload
-              <span class="mono gold">soul-calculator-training-data.txt</span>
-              from your <span class="mono">soul-calculator\</span> folder.
-              One file. That is all the sources you need.
-              Wait for NotebookLM to finish processing before moving on.
+              Inside the notebook, find the option to add sources. Upload all
+              the <span class="mono">.txt</span> files from your
+              <span class="mono">soul-calculator\</span> folder.
+              Do not upload the <span class="mono">.bat</span> files.
+              Wait for NotebookLM to finish processing all files before moving on.
             </div>
           </div>
         </div>
 
         <div class="step">
-          <div class="step-num">8</div>
+          <div class="step-num">9</div>
           <div class="step-content">
             <span class="step-emoji">🧮</span>
             <div class="step-title">PASTE YOUR INITIATION PROMPT</div>
@@ -1275,5 +1439,41 @@
     </footer>
 
   </div>
+
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Switch theme"><span id="themeIcon">☀️</span></button>
+
+  <script>
+    function toggleTheme() {
+      var b = document.body;
+      var next = b.classList.contains('dark')  ? 'party'
+               : b.classList.contains('party') ? 'light'
+               : 'dark';
+      b.classList.remove('dark', 'party');
+      if (next === 'dark') {
+        b.classList.add('dark');
+        document.getElementById('themeIcon').textContent = '🌙';
+      } else if (next === 'party') {
+        b.classList.add('party');
+        document.getElementById('themeIcon').textContent = '🎉';
+      } else {
+        document.getElementById('themeIcon').textContent = '☀️';
+      }
+      try { localStorage.setItem('kkk-theme', next); } catch(e) {}
+    }
+
+    // Restore saved theme
+    try {
+      var saved = localStorage.getItem('kkk-theme');
+      if (saved === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('themeIcon').textContent = '🌙';
+      } else if (saved === 'party') {
+        document.body.classList.add('party');
+        document.getElementById('themeIcon').textContent = '🎉';
+      }
+      // 'light' or null = default, no class needed, icon stays ☀️
+    } catch(e) {}
+  </script>
+
 </body>
 </html>
